@@ -1,11 +1,10 @@
 spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/test?useSSL=false
+    url: jdbc:mysql://localhost:3306/fetch_plan?useSSL=false
     username: root
-    password: ebid$2018
+    password: 1991Zxcv
 mybatis:
   config-location: classpath:mybatis.xml
-debug: true
 server:
   port: 8888

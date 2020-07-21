@@ -11,4 +11,8 @@
       where
       id=#{Id}
     </select>
+
+    <insert id="insert" parameterType="com.pjb.springbootjjwt.entity.User">
+        insert into user(username, password) values (#{username, jdbcType=VARCHAR}, #{password, jdbcType=VARCHAR})
+    </insert>
 </mapper>
