@@ -12,6 +12,8 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
+
 @Slf4j
 @RestController
 @RequestMapping("api")
@@ -71,7 +73,12 @@ public class UserApi {
     
     @UserLoginToken
     @GetMapping("/getMessage")
-    public String getMessage(){
-        return "你已通过验证";
+    public String getMessage(HttpServletRequest request){
+        String token = request.getHeader("token");
+        UserTo userTo = tokenService.parseToken(token);
+        if (userTo != null)
+            return userTo.getUsername() + " 已通过验证";
+        else
+            return "未知错误";
     }
 }
